@@ -74,4 +74,21 @@ public class StudentController {
 		return "redirect:/students";
 	}
 	
+	@GetMapping("/base")
+	public String Base() {
+		
+		return "base";
+	}
+	@GetMapping("/dashboard")
+	public String dashboard() {
+		
+		return "dashboard";
+	}
+	
+	@GetMapping("/studentLogin")
+	public String studentLogin() {
+		
+		return "studentLogin";
+	}
+	
 }
