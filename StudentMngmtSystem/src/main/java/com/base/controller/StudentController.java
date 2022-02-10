@@ -75,7 +75,7 @@ public class StudentController {
 	}
 	
 	@GetMapping("/base")
-	public String Base() {
+	public String base() {
 		
 		return "base";
 	}

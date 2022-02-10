@@ -1,12 +1,12 @@
 body
 {
-	 background-color: cyan;
+	 background-color: white;
 }
 .sidebar
 {
 	
-	background-color: white;
-	width: 18%;
+	background-color: grey;
+	width: 20%;
 	position: fixed;
 	height: 100%;
 	padding: 40px;
@@ -22,7 +22,13 @@ body
 	display:block;
 	width:100%;
 	padding: 10px 25px;
-	color:gray;
+	color:black;
 	text-decoration: none;
+	background-color: none;
 	
+}
+.container
+{
+	display: block ;
+	background-color: light;
 }
