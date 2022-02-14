@@ -13,12 +13,7 @@ import javax.persistence.*;
 		private String adminLogin;
 		@Column
 		private String adminPassword;
-		public int getAdminId() {
-			return adminId;
-		}
-		public void setAdminId(int adminId) {
-			this.adminId = adminId;
-		}
+		
 		public String getAdminLogin() {
 			return adminLogin;
 		}

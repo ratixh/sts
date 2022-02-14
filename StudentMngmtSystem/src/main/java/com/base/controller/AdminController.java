@@ -15,16 +15,19 @@ public class AdminController {
 	@PostMapping("/adminLoginCheck")
 	public String login(@ModelAttribute AdminEntity adminEntity)
 	 {	
+		
 		  AdminEntity admin= adminService.findByAdminLoginAndAdminPassword(adminEntity.getAdminLogin(),
 					  adminEntity.getAdminPassword());
 
 			  if(Objects.isNull(admin))
 			  {
-				      return "redirect:/dashboard";
+	//			      return "redirect:/dashboard";
+				  return "HomePage/dashboard";
 			  }
 			  else
 			  {
-				    return   "redirect:/admin";   
+	//			    return   "redirect:/admin"; 
+				  return "Admin/admin";
 			  }
 	  }
 }

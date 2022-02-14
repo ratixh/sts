@@ -1,12 +1,12 @@
 package com.base.controller;
 
+import java.util.Objects;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import com.base.entity.*;
 import com.base.service.StudentService;
@@ -28,15 +28,20 @@ public class StudentController {
 
 //		return "redirect:/students";
 
-	@GetMapping("/base")
+	@GetMapping("/signup")
 	public String base() {
 		
-		return "base";
+		return "Student/StudentSignin";
+	}
+	@GetMapping("/StudentLogin")
+	public String StudentLogin() {
+		
+		return "Student/StudentLogin";
 	}
 	@GetMapping("/display")
 	public String display() {
 		
-		return "display";
+		return "HomePage/display";
 	}
 	@GetMapping("/home")
 	public String home() {
@@ -47,30 +52,49 @@ public class StudentController {
 	@GetMapping("/dashboard")
 	public String dashboard() {
 		
-		return "dashboard";
+		return "HomePage/dashboard";
 	}
 	@GetMapping("/adminLogin")
+	public String admin() {
+		
+		return "Admin/adminLogin";
+	}
+	@GetMapping("/admin")
 	public String adminLogin() {
 		
-		return "adminLogin";
+		return "Admin/admin";
 	}
+	
 	@GetMapping("/contactUs")
 	public String contactUs() {
 		
-		return "contactUs";
+		return "HomePage/contactUs";
 	}
 	
-//	@GetMapping("/studentLogin")
-//	public String studentLogin() {
-//		
-//		return "studentLogin";
-//	}
-	@GetMapping("/registration")
-	private String registation(@ModelAttribute StudentEntity students, Model model) {
+	@GetMapping("/StudentDashboard")
+	public String studentLogin() {
+		
+		return "Student/studentDashboard";
+	}
 
-		studentService.saveStudent(students);
-	//	model.addAttribute("StudentEntity", students);
-		return "registration";
-
+	@PostMapping("/saveStudentDetails")
+	public String studentDetails(@ModelAttribute StudentEntity studentEntityObj)
+	{
+		studentService.addStudentDetails(studentEntityObj);
+		return "Student/StudentLogin";
+	}
+	@PostMapping("/verifylogin")
+	public String verifyLogin(@ModelAttribute StudentEntity studentEntityObj)
+	{
+		
+		StudentEntity entity = studentService.findByStudentEmailAndStudentPassword(studentEntityObj.getStudentEmail(), studentEntityObj.getStudentPassword());
+		if(Objects.isNull(entity))
+		{
+			return "redirect:/StudentLogin";
+		}
+		else
+		{
+			return "redirect:/StudentDashboard";
+		}
 	}
 }

@@ -12,14 +12,9 @@ import java.util.List;
 
 import com.base.entity.*;
 
-public interface StudentService {
-	List<StudentEntity> getAllStudents();
-	
-	StudentEntity saveStudent(StudentEntity student);
-	
-	StudentEntity getStudentById(Long id);
-	
-	StudentEntity updateStudent(StudentEntity student);
-	
-	void deleteStudentById(Long id);
+
+public interface StudentService 
+{
+	public void addStudentDetails(StudentEntity place);
+	public StudentEntity findByStudentEmailAndStudentPassword(String studentEmail,String studentPassword );
 }
