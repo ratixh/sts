@@ -46,7 +46,7 @@ public class StudentController {
 	@GetMapping("/home")
 	public String home() {
 		
-		return "home";
+		return "HomePage/display";
 	}
 	
 	@GetMapping("/dashboard")
@@ -76,6 +76,12 @@ public class StudentController {
 		
 		return "Student/studentDashboard";
 	}
+	@GetMapping("/studentDatabase")
+	public String studentDatabase() {
+		
+		return "Student/studentDatabase";
+	}
+	
 
 	@PostMapping("/saveStudentDetails")
 	public String studentDetails(@ModelAttribute StudentEntity studentEntityObj)
