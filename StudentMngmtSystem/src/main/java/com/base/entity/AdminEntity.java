@@ -1,5 +1,7 @@
 package com.base.entity;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -13,6 +15,15 @@ import javax.persistence.*;
 		private String adminLogin;
 		@Column
 		private String adminPassword;
+/////		
+	   @OneToMany(cascade=CascadeType.ALL)
+		private List<StaffEntity> staff;
+////		 
+////			
+		@OneToMany(cascade=CascadeType.ALL)
+		private List<StudentEntity> student;
+		
+	
 		
 		public String getAdminLogin() {
 			return adminLogin;

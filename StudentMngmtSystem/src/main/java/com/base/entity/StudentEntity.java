@@ -1,11 +1,10 @@
 package com.base.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+
+import javax.persistence.*;
+
+
 
 @Entity
 @Table(name= "students")
@@ -22,6 +21,8 @@ public class StudentEntity
 	private String studentPhoneno;
 	@Column
 	private String studentDateOfBirth;
+//	@Column
+//	private String studentImage;	
 	@Column
 	private String studentDegree;
 	@Column
@@ -38,6 +39,13 @@ public class StudentEntity
 	private String studentState;
 	@Column
 	private String studentPassword;
+	
+	
+	@ManyToMany
+	private List<StaffEntity> staff;
+	
+	@ManyToOne
+	private AdminEntity admin;
 	
 	public int getStudentId() {
 		return studentId;
@@ -68,7 +76,13 @@ public class StudentEntity
 	}
 	public void setStudentDateOfBirth(String studentDateOfBirth) {
 		this.studentDateOfBirth = studentDateOfBirth;
-	}
+}
+//	public String getStudentImage() {
+//		return studentImage;
+//	}
+//	public void setStudentImage(String studentImage) {
+//		this.studentImage = studentImage;
+//	}
 	public String getStudentDegree() {
 		return studentDegree;
 	}
@@ -116,30 +130,21 @@ public class StudentEntity
 	}
 	public void setStudentPassword(String studentPassword) {
 		this.studentPassword = studentPassword;
-	}
-	@Override
-	public String toString() {
-		return "StudentEntity [studentId=" + studentId + ", studentName=" + studentName + ", studentEmail="
-				+ studentEmail + ", studentPhoneno=" + studentPhoneno + ", studentDateOfBirth=" + studentDateOfBirth
-				+ ", studentDegree=" + studentDegree + ", studentBranch=" + studentBranch + ", studentAcademicYear="
-				+ studentAcademicYear + ", studentAddress=" + studentAddress + ", studentCity=" + studentCity
-				+ ", studentCountry=" + studentCountry + ", studentState=" + studentState + ", studentPassword="
-				+ studentPassword + "]";
-	}
-	public StudentEntity() {
-		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	public StudentEntity(int studentId, String studentName, String studentEmail, String studentPhoneno,
-			String studentDateOfBirth, String studentDegree, String studentBranch, int studentAcademicYear,
-			String studentAddress, String studentCity, String studentCountry, String studentState,
-			String studentPassword) {
+			String studentDateOfBirth,
+	//		String studentImage,
+			String studentDegree, String studentBranch,
+			int studentAcademicYear, String studentAddress, String studentCity, String studentCountry,
+			String studentState, String studentPassword) {
 		super();
 		this.studentId = studentId;
 		this.studentName = studentName;
 		this.studentEmail = studentEmail;
 		this.studentPhoneno = studentPhoneno;
 		this.studentDateOfBirth = studentDateOfBirth;
+//		this.studentImage = studentImage;
 		this.studentDegree = studentDegree;
 		this.studentBranch = studentBranch;
 		this.studentAcademicYear = studentAcademicYear;
@@ -149,7 +154,21 @@ public class StudentEntity
 		this.studentState = studentState;
 		this.studentPassword = studentPassword;
 	}
-	
+	public StudentEntity() {
+		super();
+		
+	}
+	@Override
+	public String toString() {
+		return "StudentEntity [studentId=" + studentId + ", studentName=" + studentName + ", studentEmail="
+				+ studentEmail + ", studentPhoneno=" + studentPhoneno + ", studentDateOfBirth=" + studentDateOfBirth
+				+ 
+	//			", studentImage=" + studentImage +
+				", studentDegree=" + studentDegree + ", studentBranch="
+				+ studentBranch + ", studentAcademicYear=" + studentAcademicYear + ", studentAddress=" + studentAddress
+				+ ", studentCity=" + studentCity + ", studentCountry=" + studentCountry + ", studentState="
+				+ studentState + ", studentPassword=" + studentPassword + "]";
+	}
 	
 	
 	
