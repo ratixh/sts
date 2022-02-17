@@ -17,7 +17,7 @@ public class StaffController {
 	@Autowired
 	private StaffService staffService;
 	
-
+ 
 	@PostMapping("/homes")
 	public String staff (@ModelAttribute StaffEntity staff, Model model) 
 	{		 
@@ -39,7 +39,8 @@ public class StaffController {
 
 	
 	@GetMapping("/staff")
-	private String staff() {
+	private String staff()
+	{
 		return"staff/staff";
 	}
 	
