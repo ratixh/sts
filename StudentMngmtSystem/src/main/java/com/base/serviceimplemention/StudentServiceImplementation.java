@@ -1,6 +1,8 @@
 
 package com.base.serviceimplemention;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,12 @@ public class StudentServiceImplementation implements StudentService{
 	public StudentEntity findByStudentEmailAndStudentPassword(String studentEmail,String studentPassword )
 	{
 		return studentRepository.findByStudentEmailAndStudentPassword(studentEmail, studentPassword);
+	}
+
+	@Override
+	public List<StudentEntity> displayAllStudentList() {
+		
+		return studentRepository.findAll();
 	}
 
 }

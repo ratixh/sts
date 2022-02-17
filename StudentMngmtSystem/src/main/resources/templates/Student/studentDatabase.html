@@ -7,7 +7,18 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
 
+th, td {
+  border: 1px solid black;
+  border-radius: 10px;
+  background: white;
+}
+th{
+
+background: #96D4D4;
+}
+</style>
    
    
   </head>
@@ -43,35 +54,35 @@
 					<th> Address </th>
 					<th> City </th>
 					<th> Country </th>
-					<th> State </th>
-					<th> Password </th>	
-					<th>Action</th>				
+					
+				
+							
 				</tr>
 			</thead>
 			
 			<tbody>
-				<tr th:each = "Student: ${student}">
-					<td th:text = "${Student.studentId}"></td>
-					<td th:text = "${Student.studentName}"></td>
-					<td th:text = "${Student.studentEmail}"></td>
-					<td th:text = "${Student.studentPhoneno}"></td>
-					<td th:text = "${Student.studentDateOfBirth}"></td>
-					<td th:text = "${Student.studentDegree}"></td>
-					<td th:text = "${Student.studentBranch}"></td>
-					<td th:text = "${Student.studentAcademicYear}"></td>
-					<td th:text = "${Student.studentAddress}"></td>
-					<td th:text = "${Student.studentCity}"></td>
-					<td th:text = "${Student.studentCountry}"></td>
-					<td th:text = "${student.studentState}"></td>
-					<td th:text = "${student.studentpassword}"></td>
-					<td>
-						  <button type="submit" class="btn btn-lg bg blue">Update</button>
+				<tr th:each = "student: ${student}">
+					<td th:text = "${student.studentId}"></td>
+					<td th:text = "${student.studentName}"></td>
+					<td th:text = "${student.studentEmail}"></td>
+					<td th:text = "${student.studentPhoneno}"></td>
+					<td th:text = "${student.studentDateOfBirth}"></td>
+					<td th:text = "${student.studentDegree}"></td>
+					<td th:text = "${student.studentBranch}"></td>
+					<td th:text = "${student.studentAcademicYear}"></td>
+					<td th:text = "${student.studentAddress}"></td>
+					<td th:text = "${student.studentCity}"></td>
+					<td th:text = "${student.studentCountry}"></td>
+					
+					
+				<!-- 	<td>
+						  <button type="submit" class="btn btn-primary">Update</button>
 						  <br>
 						  <br>
 						
 						  <button type="submit" class="btn btn-danger">Remove</button>
 						 
-					</td>
+					</td> --> 
 				</tr>
 			</tbody>
 	

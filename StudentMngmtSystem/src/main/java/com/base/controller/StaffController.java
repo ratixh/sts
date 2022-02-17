@@ -17,7 +17,7 @@ public class StaffController {
 	@Autowired
 	private StaffService staffService;
 	
- 
+  // registeration of staff
 	@PostMapping("/homes")
 	public String staff (@ModelAttribute StaffEntity staff, Model model) 
 	{		 
@@ -26,12 +26,22 @@ public class StaffController {
 		return"staff/stafflogin";
 		
 	}
+	//after adding staff
+	@PostMapping("/adminAddsStaff")
+	public String adminToAddStaff (@ModelAttribute StaffEntity staff, Model model) 
+	{		 
+		staffService.addstaff(staff);
+		model.addAttribute(staff);
+		return "Admin/admin";
+		
+	}
+	//staff logs in
 	@GetMapping("/staffLogin")
 	private String stafflogin() 
 	{
 		return"staff/stafflogin";
 	}
-		
+	// self registration of staff
 	@GetMapping("/staffform")
 	private String staffform() {
 		return"staff/staffform";
@@ -44,7 +54,25 @@ public class StaffController {
 		
 		return"staff/staff";
 	}
-	
+	//admin add student
+	@GetMapping("/adminToAddStudent")
+	private String adminToAddStudent()
+	{
+		
+		return "Admin/adminToAddStudent";
+	}
+	@GetMapping("/adminToAddStaff")
+	private String adminToAddStaff()
+	{
+		
+		return "Admin/adminToAddStaff";
+	}
+	@GetMapping("/staffDashboard")
+	private String staffDashboard()
+	{
+		
+		return"staff/staffDashboard";
+	}
 	@PostMapping("/staffLoginCheck")
 	public String login(@ModelAttribute StaffEntity staffEntity)
 	 {	
@@ -83,8 +111,7 @@ public class StaffController {
 		{
 			   staffService.deleteByStaffId(id);
 		}
-		return"staff/staffsdetail";
+		return"Admin/admin";
 	
 	}
-	
 }

@@ -5,7 +5,7 @@ body
 .sidebar
 {
 	
-	background-color: grey;
+	background-color:silver;
 	width: 20%;
 	position: fixed;
 	height: 100%;
@@ -20,11 +20,13 @@ body
 .sidebar a
 {
 	display:block;
-	width:100%;
+	
+	width:12%;
+	margin-right:95%;
 	padding: 10px 25px;
-	color:black;
+	color:teal;
 	text-decoration: none;
-	background-color: none;
+	
 	
 }
 .container
@@ -32,6 +34,7 @@ body
 	display: block ;
 	background-color: light;
 }
+
 .bannerr{
 	
 	width:100%;
@@ -42,6 +45,8 @@ body
 	
 	
 }
+
+
 *{
 	padding:0;
 	margin:0;

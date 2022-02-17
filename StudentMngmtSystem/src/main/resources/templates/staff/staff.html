@@ -20,29 +20,25 @@
   
     
 	.card{
-	
-		margin-top:100px;
-		margin-left:500px ;
-		margin-right:500px ;
-		
-		text-align: center;
-	
-	
+		margin:100px;
+		margin-left:20%;
+		text-align:center;
+	    display: flex;
 	}
     
     body
     {
-    	background: url(../images/corousal5.jpg);
+    	background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)), url(../images/corousal5.jpg);
     	background-size: cover;
     }
     
     
 .sidebar
 {
-	background-color:white;
+	background-color:lightgrey;
 	width:12%;
 	height: 100%;
-	position:fixed;
+	position:inherit;
 	
 }
 .sidebar a
@@ -50,7 +46,7 @@
 	display:block;
 	width:100%;
 	padding: 10px 25px;
-	color:grey;
+	color:black;
 	text-decoration: none;
 	
 }
@@ -64,29 +60,31 @@
     <div class="sidebar">
     <a href="display" class="item">Home</a>
   <!--	<a href="" class="item">DashBoard</a> -->
-	<a href="index" class="item">Log Out</a>
+	<a href="dashboard" class="item">Log Out</a>
 	</div>	
 
-  	<div class="card-group">	     
+  	<div class="card-group">
+  <div class="card" >
+    <img class="card-img-top" src="images/consoul2.jpg" alt="Card image cap">
+    <div class="card-body">
+    
+      <h5 class="card-title">Staff</h5>
+       <br>
+      <a href="staffDashboard" class="btn btn-primary"> My Profile </a>
+      
+    </div>
+  </div>
+  
+  <div class="card">
+    <img class="card-img-top" src="images/student.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Student</h5>
+      <a href="studentDatabase" class="btn btn-dark"> View Details </a>
+	  
+     </div>
+  </div>
+</div>
    
-	
-	    
-	   <div class="card" style="width: 10rem;">
-	  
-	  <img src="/images/corousal4.jpg" class="card-img-top" alt="...">
-	  
-	  <div class="card-body">
-	  <h5 class="card-title">Staff Portal</h5>
-	  <a href="studentDatabase" class="btn btn-dark"> View Details </a>
-	  <a href="signup" class="btn btn-danger"> Add Student </a>
-	  </div>
-	  </div>
-	  
-	
-	  
-	    
-	  
-   </div>
    
 	     
 

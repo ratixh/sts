@@ -4,6 +4,7 @@ import java.util.*;
 import javax.persistence.*;
 
 @Entity
+@Table(name="staff")
 public class StaffEntity {
 
 	@Id

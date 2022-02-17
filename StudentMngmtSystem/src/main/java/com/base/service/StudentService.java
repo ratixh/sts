@@ -13,8 +13,11 @@ import java.util.List;
 import com.base.entity.*;
 
 
+
 public interface StudentService 
 {
 	public void addStudentDetails(StudentEntity place);
 	public StudentEntity findByStudentEmailAndStudentPassword(String studentEmail,String studentPassword );
+	
+	public List<StudentEntity> displayAllStudentList();
 }
