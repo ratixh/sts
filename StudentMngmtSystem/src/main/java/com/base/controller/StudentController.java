@@ -1,8 +1,10 @@
 package com.base.controller;
 
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -77,8 +79,10 @@ public class StudentController {
 		return "Student/studentDashboard";
 	}
 	@GetMapping("/studentDatabase")
-	public String studentDatabase() {
-		
+	public String studentDatabase(Model model) {
+		List<StudentEntity>  list =  studentService.displayAllStudentList();
+		model.addAttribute("student", list);
+				
 		return "Student/studentDatabase";
 	}
 	
@@ -89,6 +93,13 @@ public class StudentController {
 		studentService.addStudentDetails(studentEntityObj);
 		return "Student/StudentLogin";
 	}
+	@PostMapping("/saveStudentDetails1")
+	public String studentDetails1(@ModelAttribute StudentEntity studentEntityObj)
+	{
+		studentService.addStudentDetails(studentEntityObj);
+		return "Admin/admin";
+	}
+	
 	@PostMapping("/verifylogin")
 	public String verifyLogin(@ModelAttribute StudentEntity studentEntityObj)
 	{
