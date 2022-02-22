@@ -1,6 +1,9 @@
 package com.base.controller;
 
 import java.util.*;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +21,7 @@ public class StaffController {
 	private StaffService staffService;
 	
   // registeration of staff
-	@PostMapping("/homes")
+	@PostMapping("/staffLogin")
 	public String staff (@ModelAttribute StaffEntity staff, Model model) 
 	{		 
 		staffService.addstaff(staff);
@@ -41,6 +44,7 @@ public class StaffController {
 	{
 		return"staff/stafflogin";
 	}
+	
 	// self registration of staff
 	@GetMapping("/staffform")
 	private String staffform() {
@@ -86,6 +90,7 @@ public class StaffController {
 				      return "staff/stafflogin";
 			  }
 			  else
+				  
 			  {
 				    return   "staff/staff";   
 			  }
@@ -111,7 +116,65 @@ public class StaffController {
 		{
 			   staffService.deleteByStaffId(id);
 		}
-		return"Admin/admin";
+		return "redirect:/staffsdetail";
 	
 	}
+//	@GetMapping("/updateStaff{id}")
+//	private String update(@PathVariable int id, @ModelAttribute StaffEntity staff, Model model,HttpSession session) 
+//	{
+//		model.addAttribute(model);
+//		session.setAttribute("staffId", id);
+//		StaffEntity staffupdate  = staffService.findByStaffId(id);
+//		
+//		if(staffupdate!=null)
+//		{
+//			model.addAttribute("staff",staffupdate);
+//		}
+//		else
+//		{
+//			model.addAttribute("staff",new StaffEntity());
+//		}
+//		return"staff/updateStaff";
+//	}
+	@GetMapping("/updateStaff1{id}")
+	public String editDetails(@PathVariable int id, Model model)
+	{
+	    model.addAttribute("staff", staffService.findByStaffId(id));
+		return "staff/updateStaff";
+		
+	}
+
+	@PostMapping("/updateStaff{id}")
+	public String updateDetails(@PathVariable int id,@ModelAttribute("staff") StaffEntity staff,Model model)
+	{
+	
+		StaffEntity entityObj = staffService.findByStaffId(id); 
+		if(entityObj!=null)
+		{
+			entityObj.setStaffId(id);
+			entityObj.setStaffName(staff.getStaffName());
+			entityObj.setStaffAge(staff.getStaffAge());
+			entityObj.setStaffGender(staff.getStaffGender());
+			entityObj.setStaffDOB(staff.getStaffDOB());
+			entityObj.setStaffQualification(staff.getStaffQualification());
+			entityObj.setStaffContact(staff.getStaffContact());
+			entityObj.setStaffAddress(staff.getStaffAddress());
+			entityObj.setStaffMail(staff.getStaffMail());
+			entityObj.setStaffPassword(staff.getStaffPassword());
+
+			
+			staffService.addstaff(entityObj);
+			
+			return "redirect:/staffsdetail";
+		
+		}
+		else
+		{
+			return "staff/staff";
+		}
+		
+		
+	}
+	
+	
 }

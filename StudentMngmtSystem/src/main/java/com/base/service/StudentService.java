@@ -20,4 +20,7 @@ public interface StudentService
 	public StudentEntity findByStudentEmailAndStudentPassword(String studentEmail,String studentPassword );
 	
 	public List<StudentEntity> displayAllStudentList();
+	public StudentEntity findByStudentId(int id);
+	public void deleteByStudentId(int id);
+	
 }

@@ -46,19 +46,24 @@ body {
 
 </style>
 <body>
+
 <div class="student-profile py-4">
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
         <div class="card shadow-sm">
           <div class="card-header bg-transparent text-center">
-            <img class="profile_img" src="/images/corousal2.jpg" alt="student dp">
-            <h3>Safi</h3>
+            <img class="profile_img" src="/images/consoul2.jpg" alt="student dp">
+            
           </div>
           <div class="card-body">
-            <p class="mb-0"><strong class="pr-1">Student Id</strong>3</p>
-            <p class="mb-0"><strong class="pr-1">Student Email</strong>safi@gmail.com</p>
-            <p class="mb-0"><strong class="pr-1">Academic Year</strong>1</p>
+                        
+          <!--    <h5  th:text="${studentModel.studentDegree}"></h5>
+             <h5  th:text="${studentModel.studentBranch}"></h5>
+             <p>Year Of Passing: <b  th:text="${studentModel.studentAcademicYear}"></b>
+           			  	  Email: <b  th:text="${studentModel.studentEmail}"></b></p> -->
+            <p th:each ="student: ${student}"></p>
+            
           </div>
         </div>
       </div>
@@ -72,28 +77,19 @@ body {
               <tr>
                 <th width="30%">Roll</th>
                 <td width="2%">:</td>
-                <td>125</td>
+                <td th:text ="${student.studentId}"></td>
               </tr>
               <tr>
                 <th width="30%">Academic Year	</th>
                 <td width="2%">:</td>
-                <td>2020</td>
+                <td th:text = "@{student.studentAcademicYear}"></td>
               </tr>
               <tr>
                 <th width="30%">Gender</th>
                 <td width="2%">:</td>
                 <td>Male</td>
               </tr>
-              <tr>
-                <th width="30%">Religion</th>
-                <td width="2%">:</td>
-                <td>Group</td>
-              </tr>
-              <tr>
-                <th width="30%">blood</th>
-                <td width="2%">:</td>
-                <td>B+</td>
-              </tr>
+             
             </table>
           </div>
         </div>
@@ -110,6 +106,5 @@ body {
     </div>
   </div>
 </div>
-
 </body>
 </html>
