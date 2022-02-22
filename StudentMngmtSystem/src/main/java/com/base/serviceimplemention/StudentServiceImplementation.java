@@ -35,4 +35,19 @@ public class StudentServiceImplementation implements StudentService{
 		return studentRepository.findAll();
 	}
 
-}
+	@Override
+	public StudentEntity findByStudentId(int id) {
+		// TODO Auto-generated method stub
+		return  studentRepository.findById(id).get();
+	}
+
+	@Override
+	public void deleteByStudentId(int id) {
+		 
+				// TODO Auto-generated method stub
+			     studentRepository.deleteById(id);
+			}
+	
+	}
+  
+

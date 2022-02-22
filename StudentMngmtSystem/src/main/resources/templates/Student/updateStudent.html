@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -8,35 +8,31 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-    <title>Sign Up | page</title>
+    <title>Sign Up | Update page</title>
     <link type="text/css" href="style.css" rel="stylesheet"/>
     
     
-   <style>
-   h2{
-   color:lightgrey;
-   }
-   </style> 
+    
  
   </head>
   <body>
    
-  <div style="background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)), url(../images/corousal5.jpg);" class="page-holder bg-cover">
+  <div style="background: radial-gradient(grey, lightgrey);" class="page-holder bg-cover">
 
     <div class="container">
         <div class="row">
           <div class="col" style="margin-top: 110px;margin-right: 10px;">
-          <h2>Register Student Account</h2>
-          <p style="color:lightgrey;">Enter the Details Correctly and press Submit</p>
+          <h2>Update current Account</h2>
+          <p style="color:(black);">Enter the Details Correctly and press Submit</p>
           </div>
 
 <!--(rgb(22, 133, 151) 0%, rgb(10, 98, 168) 85.1%))  -->
           <div class="col"style="margin-top: 20px">
         <div class="card">
           <div class="card-body" >
-            <form action="/saveStudentDetails1" method="post">
+            <form th:action="@{updateStudent{id} (id=${student.studentId})}" th:object="${student}" method="POST">
               <div class="form-group">
-                <label for="exampleFormControlInput1">Name</label>
+                <label for="exampleForm">Name</label>
                 <input name="studentName" type="text" class="form-control" id="exampleFormControlInput1" placeholder="eg. Full Name">
                
               </div>
@@ -45,11 +41,11 @@
                 <input name="studentEmail" type="email" class="form-control" id="exampleFormControlInput1" placeholder="eg.youremail@example.com">
               </div>
               <div class="form-group">
-                <label for="exampleFormControlInput1">Contact Number</label>
+                <label for="exampleFormControl">Contact Number</label>
                 <input name="studentPhoneno" type="text" class="form-control" id="exampleFormControlInput1" placeholder="987654321">
               </div>
               <div class="form-group">
-                <label for="inputCity">Date of Birth</label>
+                <label for="inputDob">Date of Birth</label>
                 <input name="studentDateOfBirth" type="text" class="form-control" placeholder="01.12.2022">
               </div>
               
@@ -81,7 +77,7 @@
                 </div>
                 
                 <div class="form-group col-md-4">
-                  <label for="inputCity">Acedemic year</label>
+                  <label for="inputYear">Acedemic year</label>
                   <input name="studentAcademicYear" type="number" class="form-control" placeholder="Passed out">
                 </div>
                 
@@ -114,7 +110,7 @@
               </div>
 
               <div class="form-group col-ml-5">
-                <label for="exampleFormControlSelect1">State</label>
+                <label for="exampleFormControl">State</label>
                 <select name="studentState" class="form-control" >
                  <option value="">Choose your State</option>
                   <option value="India">TamilNadu</option>

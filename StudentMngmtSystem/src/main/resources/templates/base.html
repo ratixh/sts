@@ -25,38 +25,29 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-   <!--  <li class="nav-item active">
-        <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
-      </li>   --> 
-       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-          Log in
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a th:href="@{/StudentLogin}"class="dropdown-item" >Student Login</a>
-          <a class="dropdown-item" th:href="@{/staffLogin}">Staff Login</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" th:href="@{adminLogin}">Admin Login</a>
-        </div>
-      </li>          
-      <li class="nav-item">
+    <li class="nav-item">
+        <a class="nav-link" href="adminLogin">Admin Portal</a>
+      </li>
+    
+      <li class="nav-item ">
+        <a class="nav-link" href="dashboard">Refresh! </a>
+      </li>
+ <li class="nav-item">
         <a class="nav-link" href="contactUs">Contact Us</a>
       </li>
-       
-      
+
     </ul>
    
   </div>
 </nav>
  <div class="sidebar">
- 
+ <br>
     <a th:href="@{/home}" class="item">HOME</a>
-    
-    <a th:href="@{/dashboard}" class="item">DASHBOARD</a>
-    <a th:href="@{/dashboard}" class="item">ABOUT</a>
-   
-    
-  
+    <a th:href="@{/StudentLogin}" class="item">STUDENT</a>
+    <a th:href="@{/staffLogin}" class="item">STAFF</a>
+    <br>
+    <a th:href="@{/contactUs}" class="item">About</a>
+      
  </div>
  
    <div class="content">
