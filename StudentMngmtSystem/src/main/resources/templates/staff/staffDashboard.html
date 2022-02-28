@@ -62,12 +62,12 @@ width:auto;
              <p>Age: <b th:text="${staff.staffAge}"></b>
              <p>Date of Birth: <b th:text="${staff.staffDOB}"></b>
              <p>Qualification: <b  th:text="${staff.staffQualification}"></b>
-             <p>Staff Id: <b  th:text="${stafft.staffId}"></b>
+             <p>Staff Id: <b  th:text="${staff.staffId}"></b>
            	 <p>Gender: <b  th:text="${staff.staffGender}"></b>
        
            	 <p>Address: <b  th:text="${staff.staffAddress}"></b>
-           	 <p>Mail: <b  th:text="${staff.studentMail}"></b>
-           	 <p>Contact: <b  th:text="${staff.studentContact}"></b>
+           	 <p>Mail: <b  th:text="${staff.staffMail}"></b>
+           	 <p>Contact: <b  th:text="${staff.staffContact}"></b>
            	  	  
            			  	  
            			  	 
@@ -77,7 +77,7 @@ width:auto;
             </div>
             <hr>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a th:href="" class="btn btn-danger  me-md-2 " type="button">Update</a>
+                <a th:href="@{/dashboard}" class="btn btn-danger  me-md-2 " type="button">Update</a>
                 </div>
             </div>
           </div>

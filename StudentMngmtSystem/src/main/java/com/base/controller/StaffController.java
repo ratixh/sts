@@ -71,11 +71,11 @@ public class StaffController {
 		
 		return "Admin/adminToAddStaff";
 	}
-	@GetMapping("/staffDashboard")
-	public String staffDashboard(@ModelAttribute StaffEntity staffEntity, HttpSession session, Model model)
+	@GetMapping("/staffDashboard{id}")
+	public String staffDashboard(@PathVariable int id, HttpSession session, Model model)
 	{
-		session.setAttribute("id", staffEntity.getStaffId());
-		model.addAttribute("staff",staffEntity);
+		StaffEntity staff= staffService.findByStaffId(id);
+		model.addAttribute("staff",staff);
 		return "staff/staffDashboard";
 	}
 	@PostMapping("/staffLoginCheck")
@@ -92,7 +92,7 @@ public class StaffController {
 			  }
 			  else				  
 			  {
-				    
+				    session.setAttribute("staffId", staff.getStaffId());
 				    return   "staff/staff";   
 			  }
 	  }

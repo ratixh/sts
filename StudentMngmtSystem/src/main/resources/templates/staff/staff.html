@@ -76,7 +76,7 @@
       <h5 class="card-title">Staff</h5>
        <br>
        <p>View and Edit your Details.</p>
-      <a th:href="@{/staffDashboard}" class="btn btn-primary"> My Profile </a>
+      <a th:href="@{'/staffDashboard'}+ ${session.staffId}" class="btn btn-primary"> My Profile </a>
       
     </div>
   </div>
