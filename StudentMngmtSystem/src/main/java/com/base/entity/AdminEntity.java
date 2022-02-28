@@ -15,13 +15,13 @@ import javax.persistence.*;
 		private String adminLogin;
 		@Column
 		private String adminPassword;
-/////		
-	   @OneToMany(cascade=CascadeType.ALL)
-		private List<StaffEntity> staff;
-////		 
-////			
-		@OneToMany(cascade=CascadeType.ALL)
-		private List<StudentEntity> student;
+///////		
+//	   @OneToMany(cascade=CascadeType.ALL)
+//		private List<StaffEntity> staff;
+//////		 
+//////			
+//		@OneToMany(cascade=CascadeType.ALL)
+//		private List<StudentEntity> student;
 		
 	
 		
