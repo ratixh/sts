@@ -20,30 +20,31 @@ body
 }
 
 .sidebar{
-	width: 18%;
+	width: 20%;
     height:100%;
 	position: fixed;
 	padding-top: 2%;
+	background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)), url(../images/sidebar1.jpg);
 }
 .sidebar a{
 	display: block;
 	width: 100%;
 	padding: 15px 45px;
-	text-decoration: none;
-	color: maroon;
+	text-decoration:none;
+	color: white;
 	}
 
 .sidebar a:hover
 {
-	background: white;
+	background: rgba(255, 99, 71, 0.4);
 }
 
 .sidebar.divider
 {
 	height: .5px;
 	width: 100%;
-	background: #e2e2e2;
-	margin-top:10px; 
+	background: maroon;
+ 
 }
 
 .sidebar .crossBtn{

@@ -71,14 +71,15 @@ public class StaffController {
 		
 		return "Admin/adminToAddStaff";
 	}
-	@GetMapping("/staffDashboard")
-	private String staffDashboard()
+	@GetMapping("/staffDashboard{id}")
+	public String staffDashboard(@PathVariable int id, HttpSession session, Model model)
 	{
-		
-		return"staff/staffDashboard";
+		StaffEntity staff= staffService.findByStaffId(id);
+		model.addAttribute("staff",staff);
+		return "staff/staffDashboard";
 	}
 	@PostMapping("/staffLoginCheck")
-	public String login(@ModelAttribute StaffEntity staffEntity)
+	public String login(@ModelAttribute StaffEntity staffEntity, HttpSession session,Model model)
 	 {	
 		  StaffEntity staff= staffService.findByStaffMailAndStaffPassword(staffEntity.getStaffMail(), 
 				  staffEntity.getStaffPassword());
@@ -89,9 +90,9 @@ public class StaffController {
 				  
 				      return "staff/stafflogin";
 			  }
-			  else
-				  
+			  else				  
 			  {
+				    session.setAttribute("staffId", staff.getStaffId());
 				    return   "staff/staff";   
 			  }
 	  }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  xmlns:th="http://www.thymleaf.org">
 
 <!-- <html xmlns:th="http://www.thymleaf.org" th:replace="home::Layout(~{::section})"> -->
 
@@ -76,7 +76,7 @@
       <h5 class="card-title">Staff</h5>
        <br>
        <p>View and Edit your Details.</p>
-      <a href="staffDashboard" class="btn btn-primary"> My Profile </a>
+      <a th:href="@{'/staffDashboard'}+ ${session.staffId}" class="btn btn-primary"> My Profile </a>
       
     </div>
   </div>
@@ -86,7 +86,7 @@
     <div class="card-body">
       <h5 class="card-title">Student</h5>
       <p>Personal details and information about our Students</p>
-      <a href="studentDatabase" class="btn btn-dark"> View Details </a>
+      <a th:href="@{/studentDatabase}" class="btn btn-dark"> View Details </a>
 	  
      </div>
   </div>

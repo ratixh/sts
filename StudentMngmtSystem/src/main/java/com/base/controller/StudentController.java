@@ -29,7 +29,7 @@ public class StudentController {
 	// handler method to handle list students and return mode and view
 	
 	// handler method to handle delete student request
-
+// ----------------------------------------------------
 	@GetMapping("/signup")
 	public String base() {
 		
@@ -40,6 +40,8 @@ public class StudentController {
 		
 		return "Student/StudentLogin";
 	}
+	
+	// HOMEPAGE Handlers---------------------
 	@GetMapping("/display")
 	public String display() {
 		
@@ -55,7 +57,14 @@ public class StudentController {
 	public String dashboard() {
 		
 		return "HomePage/dashboard";
+		
 	}
+	@GetMapping("/contactUs")
+	public String contactUs() {
+		
+		return "HomePage/contactUs";
+	}
+	// admin Login and Logincheck
 	@GetMapping("/adminLogin")
 	public String admin() {
 		
@@ -67,15 +76,10 @@ public class StudentController {
 		return "Admin/admin";
 	}
 	
-	@GetMapping("/contactUs")
-	public String contactUs() {
-		
-		return "HomePage/contactUs";
-	}
+	
 	
 	@GetMapping("/StudentDashboard")
-	public String studentLogin() {
-		
+	public String studentLogin(Model model) {
 		return "Student/studentDashboard";
 	}
 	@GetMapping("/studentDatabase")
@@ -108,7 +112,7 @@ public class StudentController {
 	}
 	
 	@PostMapping("/verifylogin")
-	public String verifyLogin(@ModelAttribute StudentEntity studentEntityObj)
+	public String verifyLogin(@ModelAttribute StudentEntity studentEntityObj, HttpSession session,Model model)
 	{
 		
 		StudentEntity entity = studentService.findByStudentEmailAndStudentPassword(studentEntityObj.getStudentEmail(), studentEntityObj.getStudentPassword());
@@ -118,7 +122,9 @@ public class StudentController {
 		}
 		else
 		{
-			return "redirect:/StudentDashboard";
+			session.setAttribute("id", entity.getStudentId());
+			model.addAttribute("student",entity);
+			return "Student/studentDashboard";
 		}
 	}
 	@GetMapping("/updateStudent1{id}")
