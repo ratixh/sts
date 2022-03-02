@@ -176,6 +176,42 @@ public class StaffController {
 		
 		
 	}
+	@GetMapping("/updateStaffthemself{id}")
+	public String editDetailsthemself(@PathVariable int id, Model model)
+	{
+	    model.addAttribute("staff", staffService.findByStaffId(id));
+		return "staff/updateStaffPersonal";
+		
+	}
+	@PostMapping("/updateStaffthemself1{id}")
+	public String updateDetailsthemself(@PathVariable int id,@ModelAttribute("staff") StaffEntity staff,Model model)
+	{
+	
+		StaffEntity entityObj = staffService.findByStaffId(id); 
+		if(entityObj!=null)
+		{
+			entityObj.setStaffId(id);
+			entityObj.setStaffName(staff.getStaffName());
+			entityObj.setStaffAge(staff.getStaffAge());
+			entityObj.setStaffGender(staff.getStaffGender());
+			entityObj.setStaffDOB(staff.getStaffDOB());
+			entityObj.setStaffQualification(staff.getStaffQualification());
+			entityObj.setStaffContact(staff.getStaffContact());
+			entityObj.setStaffAddress(staff.getStaffAddress());
+			entityObj.setStaffMail(staff.getStaffMail());
+			entityObj.setStaffPassword(staff.getStaffPassword());
+
+			
+			staffService.addstaff(entityObj);
+			
+			return "redirect:/staffDashboard{id}";
+		
+		}
+		else
+		{
+			return "staff/staff";
+		}
+	}
 	
 	
 }
