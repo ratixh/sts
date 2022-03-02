@@ -22,7 +22,7 @@
    }
     .card-body {
 
-   background:gray;
+   background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)), url(../images/sidebar1.jpg);
    }
    body {
     background: #67B26F;  /* fallback for old browsers */
@@ -44,6 +44,22 @@
 .d-grid a{
 width:auto;
 }
+th, td {
+  border: 1px solid black;
+  border-radius: 10px;
+  background: white;
+  align-content: center;
+}
+th{
+
+background:radial-gradient(grey, lightgrey); 
+  align-content: center;
+}
+table{
+margin-left:23%;
+align-self: center;
+}
+
 
    </style>
  
@@ -58,26 +74,27 @@ width:auto;
                 
                 <img class="profile_img" src="images/student.jpg" alt="student dp">
               <h2>-------------------------------------------</h2>
-             <p>Name: <b th:text="${student.studentName}"></b></p>
-             <p>Phone Number: <b th:text="${student.studentPhoneno}"></b>
-             <p>Date of Birth: <b th:text="${student.studentDateOfBirth}"></b>
-             <p>Department: <b  th:text="${student.studentDegree}"></b>
-             <p>Student Id: <b  th:text="${student.studentId}"></b>
-           	 <p>Email: <b  th:text="${student.studentBranch}"></b>
-           	 <p>Year: <b  th:text="${student.studentAcademicYear}"></b>
-           	 <p>Address: <b  th:text="${student.studentAddress}"></b>
-           	 <p>City: <b  th:text="${student.studentCity}"></b>
-           	 <p>Country: <b  th:text="${student.studentCountry}"></b>
+              <table>
+             <tr><th> Name: </th><td th:text="${student.studentName}"></td></tr>
+             <tr><th>Phone Number: </th><td th:text="${student.studentPhoneno}"/></tr>
+             <tr><th>Date of Birth:</th> <td th:text="${student.studentDateOfBirth}"/></tr>
+             <tr><th>Department:</th> <td  th:text="${student.studentDegree}"/></tr>
+             <tr><th>Student Id:</th> <td  th:text="${student.studentId}"/></tr>
+           	 <tr><th>Email:</th> <td  th:text="${student.studentBranch}"/></tr>
+           	 <tr><th>Year: </th><td  th:text="${student.studentAcademicYear}"/></tr>
+           	 <tr><th>Address:</th> <td  th:text="${student.studentAddress}"/></tr>
+           	 <tr><th>City: </th><td  th:text="${student.studentCity}"/></tr>
+           	 <tr><th>Country:</th> <td  th:text="${student.studentCountry}"/></tr>
            	  	  
            			  	  
            			  	 
             
              
-                
+              </table>  
             </div>
             <hr>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a th:href="@{/updateStudent1{id} (id=${student.studentId})}" class="btn btn-danger  me-md-2 " type="button">Update</a>
+                <a th:href="@{/updateStudentthemself{id} (id=${student.studentId})}" class="btn btn-danger  me-md-2 " type="button">Update</a>
                 </div>
             </div>
           </div>

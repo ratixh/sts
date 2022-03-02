@@ -16,7 +16,8 @@ public class AdminServiceImplementation implements AdminService
 	private AdminRepository adminRepository;
 
 	@Override
-	public AdminEntity findByAdminLoginAndAdminPassword(String adminLogin, String adminPassword) {
+	public AdminEntity findByAdminLoginAndAdminPassword(String adminLogin, String adminPassword) 
+	{
 		
 		 AdminEntity adminEntity=  adminRepository.findByAdminLoginAndAdminPassword(adminLogin, 
 				 adminPassword);

@@ -22,7 +22,7 @@
    }
     .card-body {
 
-   background:gray;
+   background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)), url(../images/sidebar1.jpg); 
    }
    body {
     background: #67B26F;  /* fallback for old browsers */
@@ -44,6 +44,21 @@
 .d-grid a{
 width:auto;
 }
+th, td {
+  border: 1px solid black;
+  border-radius: 10px;
+  background: white;
+  align-content: center;
+}
+th{
+
+background:radial-gradient(grey, lightgrey); 
+  align-content: center;
+}
+table{
+margin-left:33%;
+align-self: center;
+}
 
    </style>
  
@@ -58,32 +73,34 @@ width:auto;
                 
                 <img class="profile_img" src="images/img4.jpg" alt="staff dp">
               <h2>-------------------------------------------</h2>
-             <p>Name: <b th:text="${staff.staffName}"></b></p>
-             <p>Age: <b th:text="${staff.staffAge}"></b>
-             <p>Date of Birth: <b th:text="${staff.staffDOB}"></b>
-             <p>Qualification: <b  th:text="${staff.staffQualification}"></b>
-             <p>Staff Id: <b  th:text="${staff.staffId}"></b>
-           	 <p>Gender: <b  th:text="${staff.staffGender}"></b>
+              <table>
+             <tr><th> Name: </th><td th:text="${staff.staffName}"></td></tr>
+             <tr><th>Age:</th> <td th:text="${staff.staffAge}"></td></tr>
+             <tr><th>Date of Birth:</th> <td th:text="${staff.staffDOB}"/></tr>
+             <tr><th>Qualification:</th> <td  th:text="${staff.staffQualification}"/></tr>
+             <tr><th>Staff Id:</th> <td  th:text="${staff.staffId}"/></tr>
+           	 <tr><th>Gender: </th><td  th:text="${staff.staffGender}"/></tr>
        
-           	 <p>Address: <b  th:text="${staff.staffAddress}"></b>
-           	 <p>Mail: <b  th:text="${staff.staffMail}"></b>
-           	 <p>Contact: <b  th:text="${staff.staffContact}"></b>
+           	 <tr><th>Address:</th> <td  th:text="${staff.staffAddress}"/></tr>
+           	 <tr><th>Mail:</th> <td th:text="${staff.staffMail}"/></tr>
+           	 <tr><th>Contact: </th><td  th:text="${staff.staffContact}"/></tr>
            	  	  
            			  	  
            			  	 
             
              
-                
+             </table>   
             </div>
             <hr>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a th:href="@{/dashboard}" class="btn btn-danger  me-md-2 " type="button">Update</a>
+                <a th:href="@{/updateStaffthemself{id} (id=${staff.staffId})}" class="btn btn-danger  me-md-2 " type="button">Update</a>
                 </div>
+                
             </div>
           </div>
     </div>
   
- </div>
+ 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 

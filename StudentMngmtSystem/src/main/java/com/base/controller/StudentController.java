@@ -78,8 +78,10 @@ public class StudentController {
 	
 	
 	
-	@GetMapping("/StudentDashboard")
-	public String studentLogin(Model model) {
+	@GetMapping("/StudentDashboard{id}")
+	public String studentLogin(@PathVariable int id, HttpSession session,Model model) {
+		StudentEntity student=studentService.findByStudentId(id);
+		model.addAttribute("student", student);
 		return "Student/studentDashboard";
 	}
 	@GetMapping("/studentDatabase")
@@ -116,7 +118,7 @@ public class StudentController {
 	{
 		
 		StudentEntity entity = studentService.findByStudentEmailAndStudentPassword(studentEntityObj.getStudentEmail(), studentEntityObj.getStudentPassword());
-		if(Objects.isNull(entity))
+		if(entity==null)
 		{
 			return "redirect:/StudentLogin";
 		}
@@ -167,6 +169,47 @@ public class StudentController {
 		else
 		{
 			return "Admin/admin";
+		}
+		
+	}
+	@GetMapping("/updateStudentthemself{id}")
+	public String editDetailsThemself(@PathVariable int id, Model model)
+	{
+	    model.addAttribute("student", studentService.findByStudentId(id));
+		return "Student/updateStudentPersonal";
+		
+	}
+	@PostMapping("/updateStudentthemself1{id}")
+	private String updateThemself(@PathVariable int id, @ModelAttribute("student") StudentEntity student, Model model) 
+	{
+	
+		StudentEntity entityObj = studentService.findByStudentId(id); 
+		if(entityObj!=null)
+		{
+			entityObj.setStudentId(id);
+			entityObj.setStudentName(student.getStudentName());
+			entityObj.setStudentBranch(student.getStudentBranch());
+			entityObj.setStudentPhoneno(student.getStudentPhoneno());
+			entityObj.setStudentCountry(student.getStudentCountry());
+			entityObj.setStudentDateOfBirth(student.getStudentDateOfBirth());
+			entityObj.setStudentAcademicYear(student.getStudentAcademicYear());
+			entityObj.setStudentCity(student.getStudentCity());
+			entityObj.setStudentAddress(student.getStudentAddress());
+			entityObj.setStudentEmail(student.getStudentEmail());
+			entityObj.setStudentPassword(student.getStudentPassword());
+			entityObj.setStudentDegree(student.getStudentDegree());
+			entityObj.setStudentState(student.getStudentState());
+			
+
+			
+			studentService.addStudentDetails(entityObj);
+			
+			return "redirect:/StudentDashboard{id}";
+		
+		}
+		else
+		{
+			return "Student/StudentLogin";
 		}
 		
 	}
