@@ -1,51 +1,248 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
+<html   lang="en" xmlns="http://www.thymeleaf.org" >
 <head>
 <meta charset="ISO-8859-1">
-<title>Contact Us</title>
- <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
- <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
- <style>
-     body
-     {
-				background-image:url("Banner.jpg"); 
-				background-repeat:no-repeat;    
-				background-size:cover;
-				background-attachment:fixed;
-     }
-     .cardType
-			{
-				background-color: lightgrey;
-				padding: 40px;	
-				border: solid;
-				margin-top:100px;
-				margin-bottom:80px;
-				margin-left:100px;
-				margin-right:50%;
-				
-			}
-     
-     
-     
-     </style>
-    
+<title>SignUp</title>
 </head>
+<style>
+
+body
+{
+	width:100%;
+	height:cover;
+	background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)) ,url(../images/img6.jpg) ;
+	background-size: cover;
+	color:white;
+}
+
+
+.signposters
+{
+	width:100%;
+	height:cover;
+	background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)) ,url(../images/booth.jpg) ;
+	background-size: cover;
+	color:white;
+}
+
+.about-banner
+{
+	width:100%;
+	height:cover;
+	background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)) ,url(../images/img1.jpg) ;
+	background-size: cover;
+	color:white;
+}
+
+
+.bannerr{
+	
+	width:100%;
+	height:93vh;
+	background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)), url(../images/Banner.jpg);
+	background-size: cover;
+	color:white;
+	
+	
+}
+
+
+
+.containers{
+	
+	padding:100px 100px 200px 470px;
+}
+
+.login-banner
+{
+	
+	width:100%;
+	height:93vh;
+	background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)), url(../images/food.jpg);
+	background-size: cover;
+	color:white;
+	
+}
+
+.container
+{
+	background-size: cover;
+	
+	padding:10px;
+}
+
+.cardTypeLogin{
+	
+	margin-left: 45px;
+}
+
+
+
+
+.Registeration{
+	
+	margin-top: 100px;
+}
+
+
+
+*{
+	padding:0;
+	margin:0;
+	box-sizing:border-box;
+	list-style-type:none;
+	text-decoration:none;
+	font-family:'Poppins',sans-serif;
+}
+
+
+
+.main-content{
+	margin-left:1000px;
+}
+
+.user-wrapper{
+	margin-left:40px;
+	padding:10px;
+	
+}
+
+.content-bar{
+	margin-left: 25%;
+	padding-left: 20px;
+}
+
+.dashboard{
+	margin-left: 10px;
+	padding: 100px 100px 100px 400px;
+}
+
+.sidebarr{
+	padding:20px;
+}
+
+
+
+@media only screen and (max-width:600px){
+	
+	.sidebar{
+	display: none;
+	width: 80% !important;
+	height:100vh;
+	position: fixed;
+	padding-top: 20px;
+	}
+	
+	.side-content{
+	margin-left: 0% !important;
+	}
+	
+}
+
+.sidebar{
+	width: 18%;
+    
+	height:100%;
+	position: fixed;
+	padding-top: 2%;
+}
+
+.side-content{
+	
+	margin-left: 30%; 
+}
+
+
+.sidebar a{
+	display: block;
+	width: 100%;
+	padding: 15px 45px;
+	text-decoration: none;
+	color: gray;
+	}
+
+.sidebar a:hover
+{
+	background: #e2e2e2;
+}
+
+.sidebar.divider
+{
+	height: .5px;
+	width: 100%;
+	background: #e2e2e2;
+	margin-top:10px; 
+}
+
+.sidebar .crossBtn{
+	position: absolute;
+	top:0px;
+	right: 65px;
+	
+	font-size: 36px;
+	cursor: pointer;
+}
+
+.contact{
+	
+	margin-top: 5px;
+	padding:auto;
+	
+}
+
+
+.addData{
+	margin-left: 20px;
+	padding:40px;
+}
+
+
+
+.heading{
+	color:#A4B494;
+	margin-top:none;
+	margin-left: 220px;
+}
+
+
+.tableBody{
+	
+	text-decoration: white;
+}
+
+
+.tableee{
+	padding-top: 10px;
+	margin-top: 50px;
+	margin-left: 210px;
+	padding: auto;
+}
+
+</style>
 <body>
-<h3>Contact Us!!</h3>
-<h4> Administrative Office</h4>
-<p>The administrative office of the group is located at #1, Grand Southern Trunk (GST) Road, St. Thomas Mount, (near Kathipara Flyover) half a km from Guindy Railway Station and 3 km from the Chennai Kamaraj Domestic and Anna International Airport.
- The office is ideally located for the students to arrive either by bus or by electric train from any part of Chennai city. Suburban railway stations are equidistance from the institution.</p>
-<br>
-<h4> Address</h4>
-<p>
-Registered Office<br>
-40, G.S.T Road, St. Thomas Mount,<br>
-Chennai – 600 016. India.<br>
-Ph. : +91-44-22340968 | 22341389<br>
-Email: info@StudentManagement.com</p>
+
+   <div class="about-banner">
+        <div class= "container">
+           <div class="row">
+           
+               <div class="col-md-8 offset-md-2">
+               
+                  <h1 class="text-center">Contact US!!!</h1>
+                  <p>This page is about the company and its functions.</p>
+                  <p>Are you searching for Essay Writing Topics in English for various competitions and speeches for school events? Then you are on the right page here you will get all kinds of topics for essay writing in English. As we have gathered numerous essay topics in long and short forms for all classes students. Yes, what you heard is correct, this page is filled with Long essays for classes 10, 9, 8, 7, and Short essays for classes 6, 5, 4, 3, 2, 1. So, anyone can check out this Essay Writing in English Article on AplusTopper for school events & competitions.</p>
+                  <p>Moreover, you can also find 10 lines on the selected far topic in English for the speeches in school programs. These Ten lines in English will assists students and teachers at the time of school speeches on special events. Hence, students can refer to the below provided massive list of essays in English and participate in any kind of events conducted by schools. For the sake of class 1 to 10 students, we have also covered 10 Lines and Essay on ‘My School’ in English and Hindi here.</p>
+                  <p>Students, here is the list of a massive collection of various kinds of essays in English. No matter where you are from, our list will assist you to the fullest with any kind of essay you need. Because we have provided different categories of Essays in English such as General Essays, Education Essay, Essay on India, Essay on Personalities/People, Essay on Persons We Come Across, Essay on About Myself, Essay on School’s Surroundings and Examinations, Essay on Visits, Essay on Scenes, Sights and Journeys, Essay on Science & Technology and Environment, Essay on Animals, etc.
+
+Moreover, you can also discover in some other categories like Essay on Festivals, Functions, and Celebrations, Essay on Cities, Essay on National Days, Essay on Social Issues & Social Awareness, Essay on Monuments, Essay on Relationships, Essay on Sports, Essay on Environmental Issues, Essay on Proverb, Essay on Moral Values, Essay on Nature, Essay on Health, etc. for students of lower and higher classes. On all these categories of topics, you will found long essays, short essays, and 10 lines in English so make use of these essays in essay writing competitions and speeches and win the first prizes at school events.</p>
+               
+               </div>
+           
+           </div>
+        
+        </div>  
+   
+   
+   </div>
+
 </body>
 </html>
